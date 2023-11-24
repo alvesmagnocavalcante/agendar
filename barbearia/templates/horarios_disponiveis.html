@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horários Disponíveis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #14213d;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #fca311;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            background-color: #fca311;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        a {
+            color: #14213d;
+            text-decoration: none;
+            margin-top: 10px;
+            display: inline-block;
+            background-color: #fca311;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #ffc86f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Horários Disponíveis</h1>
+    <ul id="horarios-list">
+        {% for horario in horarios %}
+            {% if horario.disponivel %}
+                <li>
+                    {{ horario.hora }}
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <a href="/agendar/">Voltar para agendar</a>
+</body>
+</html>
